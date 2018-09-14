@@ -7,7 +7,6 @@ using GHIElectronics.TinyCLR.Pins;
 using GHIElectronics.TinyCLR.Devices.Display;
 using GHIElectronics.TinyCLR.Devices.Display.Provider;
 using GHIElectronics.TinyCLR.Storage.Streams;
-using GHIElectronics.TinyCLR.Devices.SerialCommunication;
 using System.Runtime.CompilerServices;
 using System.Drawing;
 using System.Diagnostics;
@@ -29,8 +28,8 @@ namespace TinyCLR_F769
                 Height = 480,
                 PixelClockRate = 9600000, // not used in native code
                 PixelPolarity = false,
-                OutputEnablePolarity = true, // this must be true
-                OutputEnableIsFixed = true,
+                //OutputEnablePolarity = true, // this must be true
+                //OutputEnableIsFixed = true,
                 HorizontalFrontPorch = 8,
                 HorizontalBackPorch = 43,
                 HorizontalSyncPulseWidth = 2,
@@ -43,9 +42,9 @@ namespace TinyCLR_F769
 
             };
                         
-            _display.ApplySettings(_settings);
-            _display.WriteString("\f\n\n* Discovery STM32F69 board *\n\n");
-            _display.WriteString  ("* TinyCLR 0.12.0 for STM32F7 *");
+            _display.SetConfiguration(_settings);
+            _display.DrawString("\f\n\n* Discovery STM32F69 board *\n\n");
+            _display.DrawString("* TinyCLR 1.0.0 pvw for STM32F7 *");            
             _screen = Graphics.FromHdc(_display.Hdc);
         }
 
