@@ -19,7 +19,7 @@ namespace TinyCLR_F769
         static void Main()
         {
             RtcController rtc = RtcController.GetDefault();
-            rtc.SetTime( RtcDateTime.FromDateTime(DateTime.Now) );
+            //rtc.SetTime( RtcDateTime.FromDateTime(new DateTime(2018,10,03,11,00,00)) );
 
             string COM = "GHIElectronics.TinyCLR.NativeApis.STM32F7.UartController\\2";
             UartController ser = UartController.FromName(STM32F7.UartPort.Usart1); // DISCO-F769
@@ -52,8 +52,8 @@ namespace TinyCLR_F769
                 }
                 Thread.Sleep(1000);
                 //d.DrawSomething(sallocated, x, y);
-                var dt = rtc.GetTime();
-                byte[] b = System.Text.Encoding.UTF8.GetBytes("Program Running !! .." + dt.ToDateTime().ToString() + "\r\n");
+                var dt = rtc.Now;
+                byte[] b = System.Text.Encoding.UTF8.GetBytes("Program Running !! .." + dt.ToString() + "\r\n");
                 ser.Write(b);
                 ser.Flush();
 
