@@ -25,10 +25,10 @@ namespace TinyCLR_F769
                 return Resource1.manager;
             }
         }
-        internal static System.Drawing.Font GetFont(Resource1.FontResources id)
-        {
-            return ((System.Drawing.Font)(ResourceManager.GetObject(((short)(id)))));
-        }
+        //internal static System.Drawing.Font GetFont(Resource1.FontResources id)
+        //{
+        //    return ((System.Drawing.Font)(ResourceManager.GetObject(((short)(id)))));
+        //}
         [System.SerializableAttribute()]
         internal enum FontResources : short
         {

@@ -40,7 +40,7 @@ namespace TinyCLR_F769
 
                 if ( i % 1000  == 0)
                 {
-                    Debug.WriteLine("..Done " + i.ToString());
+                    Debug.WriteLine("..Done " + i.ToString() + "Kb");
                 }
             }            
             ret = (int) GC.GetTotalMemory(false);

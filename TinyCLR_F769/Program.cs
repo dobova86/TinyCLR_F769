@@ -19,9 +19,20 @@ namespace TinyCLR_F769
         static void Main()
         {
             RtcController rtc = RtcController.GetDefault();
-            //rtc.SetTime( RtcDateTime.FromDateTime(new DateTime(2018,10,03,11,00,00)) );
+            try
+            {
+                var t = rtc.GetTime();
+                if ( t.Year == 1980 )
+                {
+                    rtc.SetTime(RtcDateTime.FromDateTime(new DateTime(2018, 10, 12, 17, 51, 00)));
+                }
+            }
+            catch (Exception)
+            {
+                rtc.SetTime(RtcDateTime.FromDateTime(new DateTime(2018, 10, 11, 11, 51, 00)));
+            }
 
-            string COM = "GHIElectronics.TinyCLR.NativeApis.STM32F7.UartController\\2";
+            //string COM = "GHIElectronics.TinyCLR.NativeApis.STM32F7.UartController\\2";
             UartController ser = UartController.FromName(STM32F7.UartPort.Usart1); // DISCO-F769
             //UartController ser = UartController.FromName(STM32F7.UartPort.Usart3); // NUCLEO-F767
             ser.SetActiveSettings(38400, 8, UartParity.None, UartStopBitCount.One, UartHandshake.None);
@@ -39,6 +50,8 @@ namespace TinyCLR_F769
 
             int x = 10, y = 10;
 
+            //SDTest sd = new SDTest();
+
             sallocated = "Memory:" + GC.GetTotalMemory(true).ToString() + " bytes!";
             while(true)
             {
@@ -53,7 +66,7 @@ namespace TinyCLR_F769
                 Thread.Sleep(1000);
                 //d.DrawSomething(sallocated, x, y);
                 var dt = rtc.Now;
-                byte[] b = System.Text.Encoding.UTF8.GetBytes("Program Running !! .." + dt.ToString() + "\r\n");
+                byte[] b = System.Text.Encoding.UTF8.GetBytes("Program Running !! .." + dt.ToString("dd/MM/yyyy HH:mm:ss") + "\r\n");
                 ser.Write(b);
                 ser.Flush();
 

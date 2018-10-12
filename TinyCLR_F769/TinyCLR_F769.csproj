@@ -40,7 +40,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BlinkLed.cs" />
-    <Compile Include="DisplayTest.cs" />
     <Compile Include="HeapAllocTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -49,6 +48,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="SDTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -98,8 +98,8 @@
     <Reference Include="GHIElectronics.TinyCLR.Devices.Uart, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GHIElectronics.TinyCLR.Devices.Uart.1.0.0-preview2\lib\net452\GHIElectronics.TinyCLR.Devices.Uart.dll</HintPath>
     </Reference>
-    <Reference Include="GHIElectronics.TinyCLR.Drawing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GHIElectronics.TinyCLR.Drawing.1.0.0-preview2\lib\net452\GHIElectronics.TinyCLR.Drawing.dll</HintPath>
+    <Reference Include="GHIElectronics.TinyCLR.IO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GHIElectronics.TinyCLR.IO.1.0.0-preview2\lib\net452\GHIElectronics.TinyCLR.IO.dll</HintPath>
     </Reference>
     <Reference Include="GHIElectronics.TinyCLR.Native, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GHIElectronics.TinyCLR.Native.1.0.0-preview2\lib\net452\GHIElectronics.TinyCLR.Native.dll</HintPath>
